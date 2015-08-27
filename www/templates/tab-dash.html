@@ -1,0 +1,41 @@
+<ion-view view-title="Dashboard">
+
+  <div class="bar bar-dark bar-header beers-header">
+    <div class="row">
+      <a ng-class="{active:predicate=='name'}"
+        ng-click="order('name')"
+        class="col col-33">name</a>
+      <a ng-class="{active:predicate=='brewery'}"
+        ng-click="order('brewery')"
+        class="col col-20">brewery</a>
+      <a ng-class="{active:predicate=='style'}"
+        ng-click="order('style')"
+        class="col col-20">style</a>
+      <a ng-class="{active:predicate=='percent'}"
+        ng-click="order('percent')"
+        class="col">alc</a>
+      <a ng-class="{active:predicate=='pour'}"
+        ng-click="order('pour')"
+        class="col">pour</a>
+      <a ng-class="{active:predicate=='price'}"
+        ng-click="order('price')"
+        class="col">price</a>
+    </div>
+  </div>
+
+  <ion-content has-header class="beers-content">
+    <ul class="list">
+      <li class="item"  ng-repeat="beer in content.beers | orderBy:predicate">
+        <div class="row">
+          <div class="col col-33">{{beer.name}}</div>
+          <div class="col col-20">{{beer.brewery}}</div>
+          <div class="col col-20">{{beer.style}}</div>
+          <div class="col">{{beer.percent}}%</div>
+          <div class="col">{{beer.pour}}oz</div>
+          <div class="col">{{beer.price}}</div>
+        </div>
+      </li>
+    </ul>
+  </ion-content>
+
+</ion-view>
